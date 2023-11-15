@@ -81,3 +81,39 @@ nav {
     transition:all 0.5s ease;
     z-index: 100;
 }
+
+/* Footer*/
+
+footer {
+    color: #333;
+    padding: 10px;
+    border-top:#333 1px solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#footer_social ul {
+    margin: auto;
+    list-style-type: none;
+}
+
+#footer_social li {
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    border-color: #fff;
+}
+
+#footer_social i {
+    color: #212529;
+}
+
+#footer_social i:hover {
+    transform: scale(1.5);
+}
