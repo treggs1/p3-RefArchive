@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Add To Your RefArchive{% endblock %}
+{% block content %}
+
+<h3 class="center-align">Add To Your RefArchive</h3>
+
+<div class="row card-panel grey lighten-3">
+    <form class="col s12" method="POST" action="{{ url_for('add_archive') }}">
+        <!-- category selection -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix grey-text text-darken-4"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name">Category</label>
+            </div>
+        </div>
+        <!-- ref name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
+                <input id="ref_name" name="ref_name" minlength="5" maxlength="50"
+                    type="text" class="validate" required>
+                <label for="ref_name">Title</label>
+            </div>
+        </div>
+        <!-- ref source -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-link prefix grey-text text-darken-4"></i>
+                <input id="ref_source" name="ref_source" minlength="5" maxlength="100"
+                    type="text" class="validate" required>
+                <label for="ref_source">Source - Name/Link</label>
+            </div>
+        </div>
+        <!-- Ref Content -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-newspaper prefix grey-text text-darken-4"></i>
+                <textarea id="ref_content" name="ref_content" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                <label for="ref_content">Description</label>
+            </div>
+        </div>
+        <!-- Ref Reason -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-circle-question prefix grey-text text-darken-4"></i>
+                <textarea id="ref_reason" name="ref_reason" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                <label for="ref_reason">Reason For Saving</label>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large grey darken-1 text-shadow">
+                    Add Task <i class="fas fa-file-import right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
