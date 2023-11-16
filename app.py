@@ -5,11 +5,13 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_ckeditor import CKEditor
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
+ckeditor = CKEditor(app)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -55,6 +57,13 @@ def your_archive():
     return render_template("your_archive.html", archive=archive)
 
 
+@app.route("/detailed_view/<item_id>")
+def detailed_view(item_id):
+
+    archive = mongo.db.main.find_one({"_id": ObjectId(item_id)})
+    return render_template("detailed_view.html", archive=archive)
+
+
 @app.route("/add_archive", methods=["GET", "POST"])
 def add_archive():
     if request.method == "POST":
@@ -63,7 +72,7 @@ def add_archive():
             "ref_title": request.form.get("ref_title"),
             "ref_source": request.form.get("ref_source"),
             "ref_link": request.form.get("ref_link"),
-            "ref_content": request.form.get("ref_content"),
+            "ref_content": request.form.get("ckeditor"),
             "ref_reason": request.form.get("ref_reason"),
             "ref_importance": request.form.get("ref_importance"),
             "created_by": session["user"]
@@ -74,6 +83,9 @@ def add_archive():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_archive.html", categories=categories)
+
+
+
 
 
 @app.route("/logout")

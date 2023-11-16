@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block head %}
+{{ ckeditor.load() }}
+{% endblock %}
 {% block title %}Add To Your RefArchive{% endblock %}
 {% block content %}
 
@@ -50,9 +53,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-newspaper prefix grey-text text-darken-4"></i>
-                <textarea id="ref_content" name="ref_content" minlength="5"
-                    maxlength="200" class="materialize-textarea validate" required></textarea>
-                <label for="ref_content">Description</label>
+                <label for="ckeditor">Content</label><br><br>
+                {{ ckeditor.create() }}
             </div>
         </div>
         <!-- Ref Reason -->

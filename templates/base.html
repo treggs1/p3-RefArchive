@@ -11,6 +11,8 @@
        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <!-- Internal CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    {% block head %}
+    {% endblock %}
     <title>RefArchive - {% block title %}{% endblock %}</title>
 </head>
 <body>

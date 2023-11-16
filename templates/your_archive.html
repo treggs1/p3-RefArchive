@@ -20,7 +20,7 @@
                 <td><strong>{{ item.ref_title }}</strong></td>
                 <td>{{ item.ref_source }}</td>
                 <td>{{ item.ref_importance }}</td>
-                <td><a class="grey darken-3 btn">View</a></td>
+                <td><a href="{{ url_for('detailed_view', item_id=item._id) }}" class="grey darken-3 btn">View</a></td>
             </tr>
         {% endfor %}
     {% else %}
