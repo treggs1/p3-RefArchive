@@ -23,9 +23,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
-                <input id="ref_name" name="ref_name" minlength="5" maxlength="50"
+                <input id="ref_title" name="ref_title" minlength="5" maxlength="50"
                     type="text" class="validate" required>
-                <label for="ref_name">Title</label>
+                <label for="ref_title">Title</label>
             </div>
         </div>
         <!-- ref source -->
@@ -34,7 +34,16 @@
                 <i class="fas fa-link prefix grey-text text-darken-4"></i>
                 <input id="ref_source" name="ref_source" minlength="5" maxlength="100"
                     type="text" class="validate" required>
-                <label for="ref_source">Source - Name/Link</label>
+                <label for="ref_source">Source Name</label>
+            </div>
+        </div>
+        <!-- ref link -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-link prefix grey-text text-darken-4"></i>
+                <input id="ref_link" name="ref_link" minlength="5" maxlength="100"
+                    type="text" class="validate">
+                <label for="ref_link">Source - Link If Available</label>
             </div>
         </div>
         <!-- Ref Content -->
@@ -49,17 +58,30 @@
         <!-- Ref Reason -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-circle-question prefix grey-text text-darken-4"></i>
+                <i class="fas fa-question-circle prefix grey-text text-darken-4"></i>
                 <textarea id="ref_reason" name="ref_reason" minlength="5"
                     maxlength="200" class="materialize-textarea validate" required></textarea>
                 <label for="ref_reason">Reason For Saving</label>
             </div>
         </div>
+        <!-- Ref Importance -->
+        <div class="input-field col s12">
+            <i class="fas fa-exclamation prefix grey-text text-darken-4"></i>
+            <select id="ref_importance" name="ref_importance" class="validate" required>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label>Importance - Higher = More Important</label>
+          </div>
         <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
                 <button type="submit" class="btn-large grey darken-1 text-shadow">
-                    Add Task <i class="fas fa-file-import right"></i>
+                    Add To RefArchive<i class="fas fa-file-import right"></i>
                 </button>
             </div>
         </div>

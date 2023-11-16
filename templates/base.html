@@ -21,11 +21,14 @@
           </div>
           <ul class="nav-links">
             <a href="{{ url_for('home_page') }}">Home</a>
-            <a href="{{ url_for('your_archive', username=session['user']) }}">Your RefArchive</a>
-            <a href="{{ url_for('add_archive') }}">Add to RefArchive</a>
-            <a href="{{ url_for('logout') }}">Log Out</a>
-            <a href="{{ url_for('login') }}">Log In</a>
-            <a href="{{ url_for('register') }}">Register</a>
+            {% if session.user %}
+              <a href="{{ url_for('your_archive') }}">Your RefArchive</a>
+              <a href="{{ url_for('add_archive') }}">Add to RefArchive</a>
+              <a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+              <a href="{{ url_for('login') }}">Log In</a>
+              <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
           </ul>
           <div class="burger">
             <div class="line1"></div>
@@ -72,7 +75,9 @@
         </div>
     </footer>
 
-
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Materiaize compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

@@ -55,6 +55,27 @@ def your_archive():
     return render_template("your_archive.html", archive=archive)
 
 
+@app.route("/add_archive", methods=["GET", "POST"])
+def add_archive():
+    if request.method == "POST":
+        archive = {
+            "category_name": request.form.get("category_name"),
+            "ref_title": request.form.get("ref_title"),
+            "ref_source": request.form.get("ref_source"),
+            "ref_link": request.form.get("ref_link"),
+            "ref_content": request.form.get("ref_content"),
+            "ref_reason": request.form.get("ref_reason"),
+            "ref_importance": request.form.get("ref_importance"),
+            "created_by": session["user"]
+        }
+        mongo.db.main.insert_one(archive)
+        flash("Successfully Added To Your RefArchive", 'success')
+        return redirect(url_for("your_archive"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_archive.html", categories=categories)
+
+
 @app.route("/logout")
 def logout():
     # remove user form session cookies
@@ -76,17 +97,17 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(
-                        request.form.get("username")))
+                        request.form.get("username")), 'success')
                     return redirect(url_for(
                         "your_archive", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", 'error')
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", 'error')
             return redirect(url_for("login"))
     return render_template("login.html")
 
