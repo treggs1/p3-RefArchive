@@ -3,7 +3,7 @@
 {% block content %}
     <h3 class="center-align">Your RefArchive</h3>
 
-    <table class="striped grey darken-3">
+    <table class="striped grey darken-2">
         <thead>
         <tr>
             <th>Title</th>
@@ -17,10 +17,10 @@
     {% if archive|length > 0 %}
         {% for item in archive %}
             <tr>
-                <td>{{ item.ref_title }}</td>
+                <td><strong>{{ item.ref_title }}</strong></td>
                 <td>{{ item.ref_source }}</td>
                 <td>{{ item.ref_importance }}</td>
-                <td><a class="grey darken-2 btn">View</a>  <a class="grey darken-2 btn">Edit</a></td>
+                <td><a class="grey darken-3 btn">View</a></td>
             </tr>
         {% endfor %}
     {% else %}
