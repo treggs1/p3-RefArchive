@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Your Archive{% endblock %}
+{% block content %}
+    <h3 class="center-align">Your RefArchive</h3>
+
+    <table class="striped grey darken-3">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Source</th>
+            <th>Importance</th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+    {% if archive|length > 0 %}
+        {% for item in archive %}
+            <tr>
+                <td>{{ item.ref_title }}</td>
+                <td>{{ item.ref_source }}</td>
+                <td>{{ item.ref_importance }}</td>
+                <td><a class="grey darken-2 btn">View</a>  <a class="grey darken-2 btn">Edit</a></td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td>You currently have nothing saved on your RefArchive</td>
+        </tr>
+    {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

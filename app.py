@@ -32,7 +32,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", 'error')
             return redirect(url_for("register"))
 
         register = {
@@ -43,22 +43,16 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", 'success')
         return redirect(url_for("your_archive", username=session["user"]))
 
     return render_template("register.html")
 
 
-@app.route("/your_archive/<username>", methods=["GET", "POST"])
-def your_archive(username):
-    # grab the session user's username form db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session['user']:
-        return render_template("your_archive.html", username=username)
-
-    return redirect(url_for("login"))
+@app.route("/your_archive")
+def your_archive():
+    archive = list(mongo.db.main.find())
+    return render_template("your_archive.html", archive=archive)
 
 
 @app.route("/logout")
@@ -95,11 +89,6 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
     return render_template("login.html")
-
-
-@app.route("/add_archive")
-def add_archive():
-    return render_template("add_archive.html")
 
 
 if __name__ == "__main__":
