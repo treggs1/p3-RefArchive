@@ -19,6 +19,7 @@ header {
 
 .flashes {
     grid-area: flashes;
+    margin-top: 60px;
 }
 
 .main_content_section {
@@ -124,3 +125,13 @@ footer {
 }
 
 /* Text Modifications */
+
+/* Flashed Messages Background */
+
+.error {
+    background-color: #f44336;
+}
+
+.success {
+    background-color: #4caf50;
+}
