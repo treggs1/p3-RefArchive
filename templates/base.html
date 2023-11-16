@@ -36,7 +36,18 @@
         </nav>
     </header>
 
-      <!-- Main Page Content Section -->
+    <!-- Flashed Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="row flashes">
+                <h4 class="{{ category }} center-align">{{ message }}</h4>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}    
+
+    <!-- Main Page Content Section -->
     <main class="main_content_section" aria-label="Main Content">
     {% block content %}
     {% endblock %}
