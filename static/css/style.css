@@ -88,6 +88,93 @@ nav .logo {
     z-index: 100;
 }
 
+@media only screen and (max-width: 760px){
+    nav{
+     justify-content: space-between;
+     padding: 0 5vw;
+   }
+
+   .nav-links{
+     position: absolute;
+     right: 0;
+     top: 64px;
+     min-height:92vh;
+     background: rgba(51, 51, 51, 0.8);
+     display: flex;
+     flex-direction: column;
+     align-items: center;   
+     width: 50%;
+     margin: 0;
+     padding: 0;
+     transform: translateX(100%);
+     transition:All 0.5s ease-in;
+   }
+
+   .nav-links a{
+     opacity: 0;
+     height: 50px;
+     line-height: 50px;
+     vertical-align: middle;
+     padding: auto;
+   }
+
+   .burger{
+     display: block;
+   }
+  
+ }
+
+ @media only screen and (max-width: 640px){
+   nav{
+     justify-content: space-between;
+     padding: 0 5vw;
+   }
+ }
+
+ .nav-active{
+   transform: translateX(0);
+ }
+
+ @media only screen and (max-width: 460px){
+   .nav-links{
+     width: 100%;
+     transition:All 0.5s ease;
+   }
+ }
+
+ .nav-active{
+   transform: translateX(0);
+ }
+ 
+ @keyframes navLinkFade{
+   from{
+     opacity: 0;
+     transform: translateX(50px);
+   }
+   to{
+     opacity: 1;
+     transform: translateX(0);
+   }
+ }
+
+ .toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px );
+ }
+
+ .toggle .line2{
+    opacity: 0;
+ }
+
+ .toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px );
+ }
+ 
+@media (max-width: 400px) {
+   .navbar-brand {
+       font-size:25px;
+   }
+}
+
 /* Footer*/
 
 footer {
