@@ -2,10 +2,10 @@
 {% block head %}
 {{ ckeditor.load() }}
 {% endblock %}
-{% block title %}Add To Your RefArchive{% endblock %}
+{% block title %}Edit RefArchive Item{% endblock %}
 {% block content %}
 
-<h3 class="center-align">Add To Your RefArchive</h3>
+<h3 class="center-align">Edit RefArchive Item</h3>
 
 <div class="row card-panel grey lighten-3">
     <form class="col s12" method="POST" action="{{ url_for('add_archive') }}">
