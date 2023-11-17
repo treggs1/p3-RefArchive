@@ -13,17 +13,7 @@ RefArchive is designed for accessibility and ease of use, it has a clean layout 
 
 ### Colour Scheme
 
-- `#0e1414` used for text, headings and borders in the game area.
-- `#f2eaea` used for background colour of page.
-- `#ffffff` used for background colour of game area.
-- `#555555` used for background colour of popups.
-- `#a9a9a9` used for letter input background colour on hover.
-- `#008000` used for letter input background when correct letter is selected.
-- `#ff0000` used for letter input background when incorrect letter is selected.
-
-I used [coolors.co](https://coolors.co/0e1414-f2eaea-ffffff-a9a9a9-555555-008000-ff0000) to generate my colour palette.
-
-![screenshot](documentation/palette.png)
+The colour sceme was created using colours in the Materialize framework Using contrasting shades of grey with white background and text. In some places black or dark grey text is used to stand out from a light grey background. 
 
 ### Typography
 
