@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block head %}
+{{ ckeditor.load() }}
+{% endblock %}
+{% block title %}Add To Your RefArchive{% endblock %}
+{% block content %}
+
+<h3 class="center-align">Add To Your RefArchive</h3>
+
+<div class="row card-panel grey lighten-3">
+    <form class="col s12" method="POST" action="{{ url_for('add_archive') }}">
+        <!-- category selection -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix grey-text text-darken-4"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        {% if category.category_name == archive.category_name %}
+                            <option value="{{ category.category_name }}"  selected>{{ category.category_name }}</option>
+                        {% else %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif%}
+                    {% endfor %}
+                </select>
+                <label for="category_name">Category</label>
+            </div>
+        </div>
+        <!-- ref name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix grey-text text-darken-4"></i>
+                <input id="ref_title" name="ref_title" minlength="5" maxlength="50"
+                    value="{{ archive.ref_title }}" type="text" class="validate" required>
+                <label for="ref_title">Title</label>
+            </div>
+        </div>
+        <!-- ref source -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-link prefix grey-text text-darken-4"></i>
+                <input id="ref_source" name="ref_source" minlength="5" maxlength="100"
+                    value="{{ archive.ref_source }}" type="text" class="validate" required>
+                <label for="ref_source">Source Name</label>
+            </div>
+        </div>
+        <!-- ref link -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-link prefix grey-text text-darken-4"></i>
+                <input id="ref_link" name="ref_link" minlength="5" maxlength="100"
+                    value="{{ archive.ref_link }}" type="text" class="validate">
+                <label for="ref_link">Source - Link If Available</label>
+            </div>
+        </div>
+        <!-- Ref Content -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-newspaper prefix grey-text text-darken-4"></i>
+                <label for="ckeditor">Content</label><br><br>
+                {{ ckeditor.create(value=archive.ref_content) }}
+            </div>
+        </div>
+        <!-- Ref Reason -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-question-circle prefix grey-text text-darken-4"></i>
+                <textarea id="ref_reason" name="ref_reason" minlength="5" maxlength="200"
+                    class="materialize-textarea validate" required>{{ archive.ref_reason }}</textarea>
+                <label for="ref_reason">Reason For Saving</label>
+            </div>
+        </div>
+        <!-- Ref Importance -->
+        <div class="input-field col s12">
+            <i class="fas fa-exclamation prefix grey-text text-darken-4"></i>
+            <select id="ref_importance" name="ref_importance" class="validate" required>
+              <option value="" disabled selected>Choose your option</option>
+              <option value="1" {% if archive.ref_importance == "1" %} selected{% endif %}>1</option>
+              <option value="2" {% if archive.ref_importance == "2" %} selected{% endif %}>2</option>
+              <option value="3" {% if archive.ref_importance == "3" %} selected{% endif %}>3</option>
+              <option value="4" {% if archive.ref_importance == "4" %} selected{% endif %}>4</option>
+              <option value="5" {% if archive.ref_importance == "5" %} selected{% endif %}>5</option>
+            </select>
+            <label>Importance - Higher = More Important</label>
+          </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large grey darken-1 text-shadow">
+                    Save Changes<i class="fas fa-file-import right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
