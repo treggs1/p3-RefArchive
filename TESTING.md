@@ -87,7 +87,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | Registration Page | | | | |
 | | Attempt to register | If the username is unique and the username and password match the criteria it will create account and login otherwise the user will receive feedback| Pass | |
 | Add Archive Page | | | | |
-| | | Shows the user a form where they can input the data they want to save and upon clicking add to refarchive button it iserts the data into the database| Pass | |
+| | | Shows the user a form where they can input the data they want to save and upon clicking add to refarchive button it inserts the data into the database| Pass | |
 | Your Archive Page | | | | |
 | |  | Page displays users archive as expected showing search feature and view button for the user to view the full details of their saved item| Pass | |
 | | Using search | Entering a search query correctly brings up results if there are any to show| Pass | |

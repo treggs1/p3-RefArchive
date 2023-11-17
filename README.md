@@ -43,9 +43,8 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 | Device | Screenshot |
 | --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/wireframe-mobile.png) |
-| Tablet | ![screenshot](documentation/wireframes/wireframe-tablet.png) |
-| Desktop | ![screenshot](documentation/wireframes/wireframe-desktop.png) |
+| Mobile | ![screenshot](documentation/wireframes/p3-mobile.png) |
+| Desktop/Tablet | ![screenshot](documentation/wireframes/p3-desktop.png) |
 
 
 ## Structure
@@ -96,7 +95,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 - **Edit Archive**
 
-    - The Edit Archive page allows the user to update saved items it is accessed by clicking edit on the Detailed View page..
+    - The Edit Archive page allows the user to update saved items it is accessed by clicking edit on the Detailed View page.
 
 ![screenshot](documentation/screenshots/edit-refarchive.png)
 
