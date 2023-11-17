@@ -23,7 +23,7 @@
           <div class="logo">
             <a href="{{ url_for('home_page') }}">RefArchive</a>
           </div>
-          <ul class="nav-links">
+          <div class="nav-links">
             <a href="{{ url_for('home_page') }}">Home</a>
             {% if session.user %}
               <a href="{{ url_for('your_archive') }}">Your RefArchive</a>
@@ -33,7 +33,7 @@
               <a href="{{ url_for('login') }}">Log In</a>
               <a href="{{ url_for('register') }}">Register</a>
             {% endif %}
-          </ul>
+          </div>
           <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>
