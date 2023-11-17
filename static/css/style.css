@@ -213,6 +213,10 @@ footer {
 
 /* Text Modifications */
 
+.text-shadow {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
 /* Flashed Messages Background */
 
 .error {
