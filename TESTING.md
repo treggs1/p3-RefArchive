@@ -49,7 +49,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | --- | --- | --- |
 | Chrome | ![screenshot](documentation/screenshots/chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/screenshots/firefox.png) | Works as expected |
-| Edge | ![screenshot](documentation/browser-edge.png) | Works as expected |
+| Edge | ![screenshot](documentation/screenshots/p3-edge.png) | Works as expected |
 
 
 ## Responsiveness
