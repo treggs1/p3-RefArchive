@@ -57,6 +57,13 @@ def your_archive():
     return render_template("your_archive.html", archive=archive)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    archive = list(mongo.db.main.find({"$text": {"$search": query}}))
+    return render_template("your_archive.html", archive=archive)
+
+
 @app.route("/detailed_view/<item_id>")
 def detailed_view(item_id):
 
