@@ -96,7 +96,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | |  | Shows the full details of the item the user has selected and gives them the option to delete or edit the item| Pass | |
 | | Clicking Delete | Deletes the item from database| Pass | |
 | Edit Item | | | | |
-| |  | Shows form with all the data for the current item and changesd the data and clicks save changes then it updates the data in database| Pass | |
+| |  | Shows form with all the data for the current item if the user changes the data and clicks "save changes" then it updates the data in database| Pass | |
 
 
 
