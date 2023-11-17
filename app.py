@@ -85,7 +85,33 @@ def add_archive():
     return render_template("add_archive.html", categories=categories)
 
 
+@app.route("/edit_archive/<item_id>", methods=["GET", "POST"])
+def edit_archive(item_id):
+    if request.method == "POST":
+        archive = {"$set":{
+            "category_name": request.form.get("category_name"),
+            "ref_title": request.form.get("ref_title"),
+            "ref_source": request.form.get("ref_source"),
+            "ref_link": request.form.get("ref_link"),
+            "ref_content": request.form.get("ckeditor"),
+            "ref_reason": request.form.get("ref_reason"),
+            "ref_importance": request.form.get("ref_importance"),
+            "created_by": session["user"]
+        }}
+        mongo.db.main.update_one(archive)
+        flash("Successfully Updated To Your RefArchive", 'success')
+        return redirect(url_for("your_archive"))
 
+    archive = mongo.db.main.find_one({"_id": ObjectId(item_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_archive.html", archive=archive, categories=categories)
+
+
+@app.route("/delete_archive/<item_id>")
+def delete_archive(item_id):
+    mongo.db.main.delete_one({"_id": ObjectId(item_id)})
+    flash("Item Successfully Deleted", 'success')
+    return redirect(url_for("your_archive"))
 
 
 @app.route("/logout")
